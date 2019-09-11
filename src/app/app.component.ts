@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Osiris-Movie-Client';
+
+  isLoggedIn() {
+    const val = !!localStorage.getItem('token');
+    return val;
+  }
 }

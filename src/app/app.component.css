@@ -1,0 +1,17 @@
+.content {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+li a {
+    cursor: pointer
+}
+
+.page-content {
+    padding-top: 30px
+}
+
+.invalid {
+    color: red;
+}

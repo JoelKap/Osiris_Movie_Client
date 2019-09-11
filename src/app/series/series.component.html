@@ -1,0 +1,189 @@
+<h5>Search for a Serie</h5>
+<div>
+    <form [formGroup]="seriesForm" autocomplete="on">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Eg: Rambo..." name="name" formControlName="name" [ngClass]="{ 'is-invalid': seriesForm.controls['name'].touched && seriesForm.controls['name'].errors }">
+            <div *ngIf="seriesForm.controls['name'].errors && !seriesForm.controls['name'].pristine" class="invalid">
+                <div [hidden]="!seriesForm.controls['name'].errors.required">Series name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Eg: Season..." name="season" formControlName="season" [ngClass]="{ 'is-invalid': seriesForm.controls['season'].touched && seriesForm.controls['season'].errors }">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Eg: Episode..." name="episode" formControlName="episode" [ngClass]="{ 'is-invalid': seriesForm.controls['episode'].touched && seriesForm.controls['episode'].errors }">
+        </div>
+        <button type="button" id="search" class="btn btn-primary" (click)="search()">search</button>
+    </form>
+    <div class="container" *ngIf="series.title">
+        <hr/>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Title:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.title}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Year:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.year}}</label>
+            </div>
+        </div>
+        <div class=" form-group row">
+            <div class="col-md-3">
+                <label>Rated:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.rated}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Released:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.released}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Season:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.season}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Runtime:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.runtime}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Genre:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.genre}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Director:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.director}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Writer:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.writer}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Actors:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.actors}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Plot:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.plot}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Language:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.language}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Country:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.country}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Awards:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.awards}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Poster:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.poster}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Metascore:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.metascore}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Imdb Rating:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.imdbRating}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Imdb Votes:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.imdbVotes}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>ImdbID:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.imdbID}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Series ID:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.seriesID}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Type:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{series?.type}}</label>
+            </div>
+        </div>
+    </div>
+</div>

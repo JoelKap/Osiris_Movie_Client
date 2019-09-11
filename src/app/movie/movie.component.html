@@ -1,0 +1,128 @@
+<h5>Search for a movie</h5>
+<div>
+    <form [formGroup]="movieForm" autocomplete="on">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Eg: Rambo..." name="name" formControlName="name" [ngClass]="{ 'is-invalid': movieForm.controls['name'].touched && movieForm.controls['name'].errors }">
+            <div *ngIf="movieForm.controls['name'].errors && !movieForm.controls['name'].pristine" class="invalid">
+                <div [hidden]="!movieForm.controls['name'].errors.required">Movie name is required</div>
+            </div>
+        </div>
+        <button type="button" id="search" class="btn btn-primary" (click)="search()">search</button>
+    </form>
+    <div class="container" *ngIf="movie.title">
+        <hr/>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Title:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.title}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Year:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.year}}</label>
+            </div>
+        </div>
+        <div class=" form-group row">
+            <div class="col-md-3">
+                <label>Rated:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.rated}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Released:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.released}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Runtime:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.runtime}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Genre:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.genre}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Director:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.director}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Writer:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.writer}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Actors:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.actors}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Plot:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.plot}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Language:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.language}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Country:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.country}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Awards:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.awards}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Poster:</label>
+            </div>
+            <div class="col-md-3">
+                <label>{{movie?.poster}}</label>
+            </div>
+        </div>
+
+    </div>
+</div>
